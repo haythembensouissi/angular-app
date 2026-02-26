@@ -22,6 +22,8 @@ jobs:
       run: |
         cd springboot/app
         chmod +x mvnw
+        echo "${{secrets.DOCKERHUB_TOKEN}}"
+        echo "${{secrets.DOCKERHUB_USERNAME}}
         ./mvnw clean package 
         ./mvnw clean verify 
     - name: Set up Docker Buildx
