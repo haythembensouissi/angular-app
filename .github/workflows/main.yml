@@ -40,7 +40,7 @@ jobs:
       run: |
         docker build -t haythembensouissi/angular-app angular-app
         docker push haythembensouissi/angular-app
-       
+    
     - name: Run docker compose 
       run: |
         docker compose down 
@@ -48,3 +48,8 @@ jobs:
     - name: Check containers
       run: |
            docker ps 
+    - name: Wait for frontend
+      run: sleep 20
+
+    - name: Test backend
+      run: curl http://localhost:4200     
